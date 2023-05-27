@@ -50,11 +50,12 @@ export default function Home({ data, data_2 }) {
 export async function getStaticProps() {
   // https://links.papareact.com/pyp
   // https://links.papareact.com/zp1
+  const DB_HOST = process.env.HOST;
 
-  const response = await fetch("http://127.0.0.1:3000/api/explore");
+  const response = await fetch(`http://localhost:3000/api/explore`);
   const data = await response.json();
 
-  const response_2 = await fetch("http://127.0.0.1:3000/api/lives");
+  const response_2 = await fetch(`http://localhost:3000/api/lives`);
   const data_2 = await response_2.json();
   return {
     props: {
